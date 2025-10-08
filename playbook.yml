@@ -7,5 +7,5 @@
         path: "/lastrun"
         owner: root
         group: root
-        become: true
         state: touch
+      become: true
