@@ -1,6 +1,6 @@
 ---
 - name: Playbook
-  hosts: all
+  hosts: localhost
   tasks:
     - name: Stamp new file
       ansible.builtin.file:
