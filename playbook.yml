@@ -8,4 +8,4 @@
         owner: root
         group: root
         become: true
-        state: present
+        state: touch
