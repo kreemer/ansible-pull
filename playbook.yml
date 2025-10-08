@@ -1,0 +1,11 @@
+---
+- name: Playbook
+  hosts: all
+  tasks:
+    - name: Stamp new file
+      ansible.builtin.file:
+        path: "/lastrun"
+        owner: root
+        group: root
+        become: true
+        state: present
