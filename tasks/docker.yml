@@ -54,8 +54,8 @@
   become: true
 
 - name: Install Python Docker SDK for swarm management
-  ansible.builtin.pip:
-    name: docker
+  ansible.builtin.apt:
+    name: python3-docker
     state: present
   become: true
 
