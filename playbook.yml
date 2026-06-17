@@ -9,3 +9,9 @@
         group: root
         state: touch
       become: true
+
+    - name: Cron tasks
+      ansible.builtin.include_tasks: tasks/cron.yml
+
+    - name: Docker tasks
+      ansible.builtin.include_tasks: tasks/docker.yml

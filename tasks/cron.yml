@@ -1,0 +1,22 @@
+---
+- name: Deploy ansible-pull on-demand script
+  ansible.builtin.copy:
+    dest: /usr/local/bin/ansible-pull-run
+    mode: "0755"
+    owner: root
+    group: root
+    content: |
+      #!/bin/bash
+      set -euo pipefail
+      REPO_URL="https://github.com/kreemer/ansible-pull"
+      PLAYBOOK="playbook.yml"
+      ansible-pull -U "${REPO_URL}" "${PLAYBOOK}"
+  become: true
+
+- name: Create weekly cron job for ansible-pull
+  ansible.builtin.cron:
+    name: ansible-pull weekly
+    special_time: weekly
+    job: /usr/local/bin/ansible-pull-run
+    user: root
+  become: true
